@@ -4,17 +4,17 @@ import { useState } from 'react'
 const services = [
   {
     num: '01',
-    name: 'KnowledgeBot',
-    tag: '~2 weeks',
-    desc: 'Your documents, manuals, and SOPs become a conversational assistant your team can query in plain English. Stop losing time searching through PDFs nobody reads.',
-    detail: 'RAG pipeline · Internal doc chatbot · Custom UI',
-  },
-  {
-    num: '02',
     name: 'DraftAssist',
     tag: '~1.5 weeks',
     desc: 'Client emails, meeting summaries, and proposals drafted in your voice — not a generic AI voice. Trained on your actual writing and calibrated to your tone.',
     detail: 'Email & report drafting · Tone-matched · LLM-powered',
+  },
+  {
+    num: '02',
+    name: 'KnowledgeBot',
+    tag: '~2 weeks',
+    desc: 'Your documents, manuals, and SOPs become a conversational assistant your team can query in plain English. Stop losing time searching through PDFs nobody reads.',
+    detail: 'RAG pipeline · Internal doc chatbot · Custom UI',
   },
   {
     num: '03',
@@ -91,17 +91,6 @@ function ServiceCard({ num, name, tag, desc, detail, onInquire }) {
         cursor: 'default',
       }}
     >
-      <div style={{
-        position: 'absolute', top: '2.5rem', right: '2.5rem',
-        width: 32, height: 32,
-        border: `1px solid ${hovered ? '#cdf53c' : '#2a2a27'}`,
-        borderRadius: '50%',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        color: hovered ? '#cdf53c' : '#7a7870',
-        fontSize: '0.85rem',
-        transition: 'all 0.2s',
-      }}>→</div>
-
       <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#7a7870', marginBottom: '1.5rem' }}>
         {num}
       </div>
