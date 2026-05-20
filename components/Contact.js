@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 const links = [
-  { label: 'Email', value: 'gidonpeeper@gmail.com', href: 'mailto:gidonpeeper@gmail.com' },
+  { label: 'Email', value: 'gidon.aisy@gmail.com', href: 'mailto:gidon.aisy@gmail.com' },
   { label: 'LinkedIn', value: '/in/gidonpeeper', href: 'https://linkedin.com/in/gidonpeeper' },
   { label: 'Portfolio', value: 'gidonpeeper.github.io', href: 'https://gidonpeeper.github.io' },
   { label: 'Phone', value: '+31 6 209 82 768', href: 'tel:+31620982768' },
@@ -12,13 +12,16 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-      setSubmitted(true)
-    }, 900)
+    const res = await fetch('https://formspree.io/f/meedevoq', {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { Accept: 'application/json' },
+    })
+    setLoading(false)
+    if (res.ok) setSubmitted(true)
   }
 
   return (
@@ -110,11 +113,11 @@ export default function Contact() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <FormField label="Name" type="text" placeholder="Your name" required />
-            <FormField label="Email" type="email" placeholder="your@company.com" required />
+            <FormField label="Name" name="name" type="text" placeholder="Your name" required />
+            <FormField label="Email" name="email" type="email" placeholder="your@company.com" required />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               <label style={labelStyle}>I'm interested in</label>
-              <select style={inputStyle} defaultValue="">
+              <select name="interest" style={inputStyle} defaultValue="">
                 <option value="" disabled>Select a product…</option>
                 <option value="knowledgebot">KnowledgeBot</option>
                 <option value="draftassist">DraftAssist</option>
@@ -126,6 +129,7 @@ export default function Contact() {
               <label style={labelStyle}>Tell me about your workflow</label>
               <textarea
                 placeholder="What are you trying to automate or improve?"
+                name="message"
                 style={{ ...inputStyle, minHeight: '120px', resize: 'vertical' }}
               />
             </div>
@@ -156,11 +160,11 @@ export default function Contact() {
   )
 }
 
-function FormField({ label, type, placeholder, required }) {
+function FormField({ label, name, type, placeholder, required }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
       <label style={labelStyle}>{label}</label>
-      <input type={type} placeholder={placeholder} required={required} style={inputStyle} />
+      <input name={name} type={type} placeholder={placeholder} required={required} style={inputStyle} />
     </div>
   )
 }
