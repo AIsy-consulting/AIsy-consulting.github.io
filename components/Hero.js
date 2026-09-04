@@ -1,129 +1,80 @@
-'use client'
+import Image from 'next/image'
+import Icon from './Icon'
+
+const promises = ['Fixed price, agreed before work starts', 'Explained in plain language', 'You own everything I build']
+
+const facts = [
+  { label: 'Currently', value: 'External AI consultant and engineer at Ayrshare' },
+  { label: 'Previously', value: 'Research at Princeton University' },
+  { label: 'Education', value: 'MSc Artificial Intelligence, University of Amsterdam' },
+]
 
 export default function Hero() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
   return (
-    <section
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: '0 4rem 5rem',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Background watermark */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '-2rem',
-          transform: 'translateY(-50%)',
-          fontFamily: 'Fraunces, serif',
-          fontSize: 'clamp(200px, 35vw, 480px)',
-          fontWeight: 300,
-          color: 'rgba(255,255,255,0.025)',
-          lineHeight: 1,
-          userSelect: 'none',
-          pointerEvents: 'none',
-          fontStyle: 'italic',
-        }}
-      >
-        AI
+    <section id="top" className="pb-16 pt-32 md:pb-24 md:pt-40">
+      <div className="container-x grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
+        <div>
+          <p className="eyebrow mb-5 animate-fade-up" style={{ animationDelay: '0.05s' }}>
+            AI consulting and engineering · London
+          </p>
+          <h1
+            className="mb-6 max-w-[14ch] font-serif text-[2.7rem] font-normal leading-[1.05] tracking-[-0.02em] animate-fade-up sm:text-5xl md:text-6xl lg:text-[4.4rem]"
+            style={{ animationDelay: '0.15s' }}
+          >
+            AI where it <em className="italic text-accent">earns its place.</em>
+          </h1>
+          <p
+            className="mb-8 max-w-xl text-[1.1rem] leading-relaxed text-muted animate-fade-up md:text-lg"
+            style={{ animationDelay: '0.25s' }}
+          >
+            I help companies put AI to work on the things it is genuinely good at: answering questions from
+            your own documents, making sense of your data, and taking over repetitive work. You get working
+            software, a clear explanation of how it works, and an honest answer when AI is not the right tool.
+          </p>
+          <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.35s' }}>
+            <a href="#contact" className="btn-primary">
+              Book a free 30-minute call
+            </a>
+            <a href="#services" className="btn-secondary">
+              See how I can help
+            </a>
+          </div>
+          <ul className="mt-9 flex flex-col gap-2.5 text-sm text-muted animate-fade-up sm:flex-row sm:flex-wrap sm:gap-x-7" style={{ animationDelay: '0.45s' }}>
+            {promises.map((p) => (
+              <li key={p} className="flex items-center gap-2">
+                <Icon name="check" className="h-4 w-4 shrink-0 text-accent" />
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <figure className="animate-fade-up md:justify-self-end" style={{ animationDelay: '0.2s' }}>
+          <Image
+            src="/profile.jpg"
+            alt="Portrait of Gidon Peeper"
+            width={680}
+            height={720}
+            priority
+            className="aspect-[17/18] w-full max-w-[300px] rounded-3xl object-cover shadow-sm sm:max-w-[360px] md:max-w-[400px]"
+          />
+          <figcaption className="mt-4 max-w-[400px] text-sm leading-relaxed text-muted">
+            <span className="font-medium text-ink">Gidon Peeper</span>, AI engineer and consultant. Formerly a
+            researcher at Princeton University. Now also building AI products at Ayrshare.
+          </figcaption>
+        </figure>
       </div>
 
-      <p style={{
-        fontFamily: 'DM Mono, monospace',
-        fontSize: '0.75rem',
-        letterSpacing: '0.16em',
-        textTransform: 'uppercase',
-        color: '#cdf53c',
-        marginBottom: '1.5rem',
-        animation: 'fadeUp 0.6s ease both 0.1s',
-      }}>
-        AI Integration — Built for your team
-      </p>
-
-      <h1 style={{
-        fontFamily: 'Fraunces, serif',
-        fontWeight: 300,
-        fontSize: 'clamp(3rem, 7vw, 6.5rem)',
-        lineHeight: 1.05,
-        letterSpacing: '-0.02em',
-        maxWidth: '14ch',
-        marginBottom: '2rem',
-        animation: 'fadeUp 0.7s ease both 0.25s',
-      }}>
-        Your AI layer,{' '}
-        <em style={{ fontStyle: 'italic', color: '#cdf53c' }}>live in weeks.</em>
-      </h1>
-
-      <p style={{
-        maxWidth: '520px',
-        color: '#7a7870',
-        fontSize: '1.05rem',
-        lineHeight: 1.75,
-        marginBottom: '3rem',
-        animation: 'fadeUp 0.7s ease both 0.4s',
-      }}>
-        Fixed-scope AI projects that slot into your existing workflows.
-        No six-month retainers. No vague roadmaps. A working product, handed over,
-        ready to use — backed by research from Princeton and the University of Amsterdam.
-      </p>
-
-      <div style={{
-        display: 'flex',
-        gap: '1rem',
-        alignItems: 'center',
-        animation: 'fadeUp 0.7s ease both 0.55s',
-      }}>
-        <button
-          onClick={() => scrollTo('services')}
-          style={{
-            background: '#cdf53c',
-            color: '#0b0b0a',
-            padding: '0.8rem 2rem',
-            borderRadius: '2px',
-            fontSize: '0.9rem',
-            fontWeight: 500,
-            fontFamily: 'DM Sans, sans-serif',
-            border: 'none',
-            cursor: 'pointer',
-            transition: 'background 0.2s',
-          }}
-          onMouseEnter={e => e.target.style.background = '#a8c930'}
-          onMouseLeave={e => e.target.style.background = '#cdf53c'}
-        >
-          See what I build
-        </button>
-        <button
-          onClick={() => scrollTo('about')}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#7a7870',
-            cursor: 'pointer',
-            fontSize: '0.9rem',
-            fontFamily: 'DM Sans, sans-serif',
-            transition: 'color 0.2s',
-          }}
-          onMouseEnter={e => e.target.style.color = '#f0ede6'}
-          onMouseLeave={e => e.target.style.color = '#7a7870'}
-        >
-          About me →
-        </button>
+      <div className="container-x mt-16 md:mt-20">
+        <dl className="grid gap-6 border-t border-border pt-8 sm:grid-cols-3">
+          {facts.map((f) => (
+            <div key={f.label}>
+              <dt className="mb-1 text-xs font-semibold uppercase tracking-[0.12em] text-muted">{f.label}</dt>
+              <dd className="text-[0.95rem] text-ink">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   )
 }

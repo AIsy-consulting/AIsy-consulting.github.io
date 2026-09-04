@@ -1,130 +1,83 @@
-'use client'
-import { useState } from 'react'
+import SectionHeading from './SectionHeading'
+import Icon from './Icon'
 
 const services = [
   {
-    num: '01',
-    name: 'DraftAssist',
-    tag: '~1.5 weeks',
-    desc: 'Client emails, meeting summaries, and proposals drafted in your voice — not a generic AI voice. Trained on your actual writing and calibrated to your tone.',
-    detail: 'Email & report drafting · Tone-matched · LLM-powered',
+    icon: 'document',
+    title: 'Answers from your own documents',
+    desc: 'An assistant that answers questions using your manuals, policies, contracts or past projects, rather than the whole internet. Your team stops digging through folders, and new colleagues get up to speed faster.',
+    example: 'A customer support team asks “what is our returns policy for business customers?” and gets the answer, with a link to the page it came from.',
+    tech: 'Retrieval-augmented generation over your document store, with source citations, access controls and an evaluation set so you know how often it is right.',
   },
   {
-    num: '02',
-    name: 'KnowledgeBot',
-    tag: '~2 weeks',
-    desc: 'Your documents, manuals, and SOPs become a conversational assistant your team can query in plain English. Stop losing time searching through PDFs nobody reads.',
-    detail: 'RAG pipeline · Internal doc chatbot · Custom UI',
+    icon: 'chart',
+    title: 'Find out what actually drives your results',
+    desc: 'You have data on sales, customers or engagement, and some gut feelings about what matters. I analyse it properly and tell you which factors really move the numbers, which only look like they do, and how sure you can be of each answer.',
+    example: 'A marketing team learns which qualities of a post genuinely lead to more reach, and which popular tips make no measurable difference.',
+    tech: 'Statistical modelling with proper controls and interpretable machine learning (gradient boosting, SHAP). Written findings with effect sizes and uncertainty, not just charts.',
   },
   {
-    num: '03',
-    name: 'ResearchPilot',
-    tag: '~3 weeks',
-    desc: 'Structured literature reviews, competitive analyses, and research summaries. Work that takes your team days, delivered in hours with verifiable sources.',
-    detail: 'Research assistant · Structured output · Citation-linked',
+    icon: 'repeat',
+    title: 'Take the repetitive work off your team',
+    desc: 'Reading invoices, sorting emails, tagging photos, copying details from PDFs into a spreadsheet. AI can do a lot of this reliably now, if it is set up and checked carefully. I build the automation and the checks that go with it.',
+    example: 'Hundreds of supplier PDFs a month are read automatically, the key fields land in your system, and anything the model is unsure about is flagged for a person.',
+    tech: 'LLM classification and extraction pipelines over text and images, with measured accuracy, human review queues and scheduled cloud jobs.',
+  },
+  {
+    icon: 'puzzle',
+    title: 'AI features in your own product',
+    desc: 'You want to offer your customers something smarter: recommendations, a helpful assistant, or a way for their AI tools to use your service. I design and build it on your data, with the testing to make sure it behaves.',
+    example: 'A software company gives its customers data-backed advice inside the product, and lets their AI assistants pull that advice directly.',
+    tech: 'Recommendation systems, MCP servers and agent tooling, evaluation suites. Python and Node.js on Google Cloud, or your stack.',
   },
 ]
 
 export default function Services() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
   return (
-    <section
-      id="services"
-      style={{
-        padding: '7rem 4rem',
-        borderTop: '1px solid #2a2a27',
-      }}
-    >
-      <p style={{
-        fontFamily: 'DM Mono, monospace',
-        fontSize: '0.7rem',
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        color: '#cdf53c',
-        marginBottom: '1rem',
-      }}>
-        01 — Services
-      </p>
-      <h2 style={{
-        fontFamily: 'Fraunces, serif',
-        fontWeight: 300,
-        fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-        lineHeight: 1.1,
-        letterSpacing: '-0.02em',
-        marginBottom: '0.5rem',
-      }}>
-        Three products.{' '}
-        <em style={{ fontStyle: 'italic', color: '#cdf53c' }}>Immediate value.</em>
-      </h2>
-      <p style={{ color: '#7a7870', maxWidth: '500px', marginBottom: '4rem', lineHeight: 1.7 }}>
-        Every engagement is fixed-scope with a clear deliverable.
-        Pricing is tailored to your setup — get in touch for a quote.
-      </p>
+    <section id="services" className="border-t border-border bg-surface">
+      <div className="container-x py-20 md:py-28">
+        <SectionHeading
+          label="How I can help"
+          title="Four common"
+          accent="starting points."
+          intro="Most projects begin with one of these. If yours does not fit neatly, that is normal. The first call is for working out what would actually help."
+        />
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1px',
-        background: '#2a2a27',
-        border: '1px solid #2a2a27',
-      }}>
-        {services.map((s) => (
-          <ServiceCard key={s.num} {...s} onInquire={() => scrollTo('contact')} />
-        ))}
+        <div className="grid gap-5 md:grid-cols-2">
+          {services.map((s) => (
+            <article key={s.title} className="card flex flex-col p-7 transition-colors hover:border-ink/30 md:p-9">
+              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                <Icon name={s.icon} className="h-5 w-5" />
+              </div>
+              <h3 className="mb-3 font-serif text-2xl font-normal leading-snug">{s.title}</h3>
+              <p className="mb-5 leading-relaxed text-muted">{s.desc}</p>
+              <p className="mb-6 rounded-xl bg-paper px-4 py-3 text-[0.92rem] leading-relaxed text-ink/85">
+                <span className="font-semibold text-accent">For example: </span>
+                {s.example}
+              </p>
+              <p className="tech-note mt-auto border-t border-border pt-4">
+                <strong>For your technical team: </strong>
+                {s.tech}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-6 rounded-2xl bg-accent-soft p-8 md:flex-row md:items-center md:justify-between md:p-10">
+          <div className="max-w-2xl">
+            <p className="eyebrow mb-3">Not sure where to start?</p>
+            <h3 className="mb-3 font-serif text-2xl font-normal">Start with a conversation</h3>
+            <p className="leading-relaxed text-muted">
+              In a free 30-minute call we look at where your team’s time goes and whether AI can help. If it makes
+              sense, I follow up with a short written assessment: what is feasible, roughly what it would cost,
+              and where the risks are. If the honest answer is “not yet”, you get that in writing too.
+            </p>
+          </div>
+          <a href="#contact" className="btn-primary shrink-0 self-start md:self-center">
+            Book a free call
+          </a>
+        </div>
       </div>
     </section>
-  )
-}
-
-function ServiceCard({ num, name, tag, desc, detail, onInquire }) {
-  const [hovered, setHovered] = useState(false)
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        background: hovered ? '#141412' : '#0b0b0a',
-        padding: '2.5rem',
-        position: 'relative',
-        transition: 'background 0.25s',
-        cursor: 'default',
-      }}
-    >
-      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#7a7870', marginBottom: '1.5rem' }}>
-        {num}
-      </div>
-      <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.6rem', fontWeight: 400, marginBottom: '0.4rem' }}>
-        {name}
-      </h3>
-      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#cdf53c', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.2rem' }}>
-        {tag}
-      </div>
-      <p style={{ color: '#7a7870', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-        {desc}
-      </p>
-      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#5a5a58', letterSpacing: '0.06em', marginBottom: '2rem' }}>
-        {detail}
-      </div>
-      <button
-        onClick={onInquire}
-        style={{
-          background: 'none',
-          border: '1px solid #2a2a27',
-          color: '#7a7870',
-          padding: '0.55rem 1.2rem',
-          borderRadius: '2px',
-          fontSize: '0.8rem',
-          fontFamily: 'DM Sans, sans-serif',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-          letterSpacing: '0.04em',
-        }}
-        onMouseEnter={e => { e.target.style.borderColor = '#cdf53c'; e.target.style.color = '#cdf53c' }}
-        onMouseLeave={e => { e.target.style.borderColor = '#2a2a27'; e.target.style.color = '#7a7870' }}
-      >
-        Inquire →
-      </button>
-    </div>
   )
 }

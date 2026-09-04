@@ -1,120 +1,99 @@
-'use client'
+import SectionHeading from './SectionHeading'
 
 const credentials = [
-  { org: 'Princeton University', role: 'Research Intern — Hasson Lab, Neuroscience · 2025–present' },
-  { org: 'University of Amsterdam', role: 'MSc Artificial Intelligence · 2023–present' },
-  { org: 'Cognitive AI Lab Amsterdam', role: 'Summer Research Intern — Causal LLM Probing · 2025' },
-  { org: 'VU University Amsterdam', role: 'BSc Artificial Intelligence, With Honors · 2020–2023' },
-  { org: 'University of Amsterdam', role: 'BSc Psychobiology · 2019–2023' },
+  { org: 'Ayrshare', role: 'External AI consultant and engineer', period: '2026 to present' },
+  { org: 'Princeton University, Hasson Lab', role: 'Research intern and assistant', period: '2025 to 2026' },
+  { org: 'University of Amsterdam', role: 'MSc Artificial Intelligence', period: '2023 to 2026' },
+  { org: 'Cognitive AI Lab, University of Amsterdam', role: 'Summer research intern', period: '2025' },
+  { org: 'VU University Amsterdam', role: 'BSc Artificial Intelligence, with honours', period: '2020 to 2023' },
+  { org: 'University of Amsterdam', role: 'BSc Psychobiology', period: '2019 to 2023' },
+]
+
+const publications = [
+  {
+    title: 'Distributed Sensitivity to Semantics and Structure Across the Brain During Naturalistic Conversations',
+    venue: 'CCN 2026 · first author',
+    href: 'https://gidonpeeper.github.io/distributed-sensitivity.pdf',
+  },
+  {
+    title: 'Prospective Planning and Retrospective Integration: Distinct Neural Signatures of Future and Past in Naturalistic Conversations',
+    venue: 'CCN 2026',
+    href: 'https://openreview.net/forum?id=kFoXJzTPOI',
+  },
+  {
+    title: 'Examining the Potential of Social Robots to Increase Adherence in Internet-based CBT',
+    venue: 'International Journal of Social Robotics, 2026',
+    href: 'https://doi.org/10.1007/s12369-026-01417-8',
+  },
 ]
 
 export default function About() {
   return (
-    <section
-      id="about"
-      style={{ padding: '7rem 4rem', borderTop: '1px solid #2a2a27' }}
-    >
-      <p style={{
-        fontFamily: 'DM Mono, monospace',
-        fontSize: '0.7rem',
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        color: '#cdf53c',
-        marginBottom: '1rem',
-      }}>
-        02 — About
-      </p>
-      <h2 style={{
-        fontFamily: 'Fraunces, serif',
-        fontWeight: 300,
-        fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-        lineHeight: 1.1,
-        letterSpacing: '-0.02em',
-        marginBottom: '4rem',
-      }}>
-        Research-grade AI.{' '}
-        <em style={{ fontStyle: 'italic', color: '#cdf53c' }}>Practical delivery.</em>
-      </h2>
+    <section id="about" className="border-t border-border">
+      <div className="container-x py-20 md:py-28">
+        <SectionHeading label="About" title="Who you would be" accent="working with." />
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '6rem',
-        alignItems: 'start',
-      }}>
-        <div>
-          <p style={{ color: '#7a7870', lineHeight: 1.8, marginBottom: '1.2rem' }}>
-            AIsy is run by <strong style={{ color: '#f0ede6', fontWeight: 400 }}>Gidon Peeper</strong> — an MSc Artificial Intelligence
-            candidate at the University of Amsterdam, with active research experience at the{' '}
-            <strong style={{ color: '#f0ede6', fontWeight: 400 }}>Princeton Neuroscience Institute</strong> (Hasson Lab)
-            and the <strong style={{ color: '#f0ede6', fontWeight: 400 }}>Cognitive AI Lab in Amsterdam</strong>.
-          </p>
-          <p style={{ color: '#7a7870', lineHeight: 1.8, marginBottom: '1.2rem' }}>
-            My research focuses on how we can use large language models to understand how the human brain represents and processes naturalistic language —
-            which means I understand these systems at a level most integrators don't. I'm not reselling
-            an off-the-shelf chatbot. I build things that actually work for your specific use case.
-          </p>
-          <p style={{ color: '#7a7870', lineHeight: 1.8, marginBottom: '2rem' }}>
-            Beyond the technical side: I've taught high school students, led national student councils,
-            and communicated AI research to stakeholders from various industries. I can explain what I built to anyone in your organisation.
-          </p>
-          <a
-            href="https://gidonpeeper.github.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: '#cdf53c',
-              color: '#0b0b0a',
-              padding: '0.75rem 1.75rem',
-              borderRadius: '2px',
-              fontSize: '0.85rem',
-              fontWeight: 500,
-              fontFamily: 'DM Sans, sans-serif',
-              textDecoration: 'none',
-              transition: 'background 0.2s',
-            }}
-            onMouseEnter={e => e.target.style.background = '#a8c930'}
-            onMouseLeave={e => e.target.style.background = '#cdf53c'}
-          >
-            Personal portfolio →
-          </a>
-        </div>
+        <div className="grid gap-12 md:grid-cols-2 lg:gap-20">
+          <div className="text-[1.02rem]">
+            <p className="mb-5 leading-relaxed text-muted">
+              AIsy is <strong className="font-medium text-ink">Gidon Peeper</strong>. I am an AI engineer based in
+              London. I studied Artificial Intelligence and Psychobiology in Amsterdam, and spent a year at
+              Princeton University using language models to study how the brain processes conversation.
+            </p>
+            <p className="mb-5 leading-relaxed text-muted">
+              Since 2026 I have been the external AI consultant and engineer for Ayrshare, a social media software
+              company, where I built and run their data and AI recommendation system. Alongside that I take on a
+              small number of AIsy projects at a time, so each one gets proper attention.
+            </p>
+            <p className="mb-5 leading-relaxed text-muted">
+              What I took from research is the habit of checking a claim before making it. What I took from teaching
+              and from leading a national student council is that most problems are explained badly rather than
+              being genuinely hard. I try to do both well: build things that work, and explain them so that you can
+              make good decisions about them.
+            </p>
+            <p className="mb-8 leading-relaxed text-muted">I work in English and Dutch, from London and remotely.</p>
+            <a href="https://gidonpeeper.github.io" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              Full CV and personal site
+            </a>
+          </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: '#2a2a27', border: '1px solid #2a2a27' }}>
-          {credentials.map((c, i) => (
-            <CredentialItem key={i} {...c} />
-          ))}
+          <div className="flex flex-col gap-10">
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">Experience and education</h3>
+              <ul className="card divide-y divide-border">
+                {credentials.map((c) => (
+                  <li key={`${c.org}-${c.role}`} className="flex items-start justify-between gap-4 px-5 py-4">
+                    <div>
+                      <div className="font-medium text-ink">{c.org}</div>
+                      <div className="mt-0.5 text-sm text-muted">{c.role}</div>
+                    </div>
+                    <div className="shrink-0 pt-0.5 text-sm text-muted">{c.period}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">Research publications</h3>
+              <ul className="space-y-4">
+                {publications.map((p) => (
+                  <li key={p.href} className="border-l-2 border-accent/60 pl-4">
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[0.95rem] leading-snug text-ink transition-colors hover:text-accent"
+                    >
+                      {p.title}
+                    </a>
+                    <div className="mt-1 text-sm text-muted">{p.venue}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function CredentialItem({ org, role }) {
-  return (
-    <div style={{
-      background: '#0b0b0a',
-      padding: '1.4rem 1.8rem',
-      display: 'flex',
-      gap: '1.2rem',
-      alignItems: 'flex-start',
-    }}>
-      <div style={{
-        width: 6, height: 6,
-        borderRadius: '50%',
-        background: '#cdf53c',
-        flexShrink: 0,
-        marginTop: '0.55rem',
-      }} />
-      <div>
-        <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1rem', fontWeight: 400, lineHeight: 1.3, marginBottom: '0.15rem' }}>
-          {org}
-        </div>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: '#7a7870', letterSpacing: '0.04em' }}>
-          {role}
-        </div>
-      </div>
-    </div>
   )
 }

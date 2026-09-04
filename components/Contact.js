@@ -1,191 +1,154 @@
 'use client'
 import { useState } from 'react'
+import SectionHeading from './SectionHeading'
+
+const FORM_ENDPOINT = 'https://formspree.io/f/meedevoq'
+const EMAIL = 'gidon.aisy@gmail.com'
 
 const links = [
-  { label: 'Email', value: 'gidon.aisy@gmail.com', href: 'mailto:gidon.aisy@gmail.com' },
-  { label: 'LinkedIn', value: '/in/gidonpeeper', href: 'https://linkedin.com/in/gidonpeeper' },
-  { label: 'Portfolio', value: 'gidonpeeper.github.io', href: 'https://gidonpeeper.github.io' },
+  { label: 'Email', value: EMAIL, href: `mailto:${EMAIL}` },
+  { label: 'LinkedIn', value: 'linkedin.com/in/gidonpeeper', href: 'https://www.linkedin.com/in/gidonpeeper' },
   { label: 'Phone', value: '+31 6 209 82 768', href: 'tel:+31620982768' },
 ]
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+const interests = [
+  'Answers from our documents',
+  'Understanding our data',
+  'Automating repetitive work',
+  'An AI feature in our product',
+  'Not sure yet, I would like to talk it through',
+]
 
-  const handleSubmit = async (e) => {
+export default function Contact() {
+  const [status, setStatus] = useState('idle')
+
+  async function handleSubmit(e) {
     e.preventDefault()
-    setLoading(true)
-    const res = await fetch('https://formspree.io/f/meedevoq', {
-      method: 'POST',
-      body: new FormData(e.target),
-      headers: { Accept: 'application/json' },
-    })
-    setLoading(false)
-    if (res.ok) setSubmitted(true)
+    setStatus('sending')
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { Accept: 'application/json' },
+      })
+      setStatus(res.ok ? 'sent' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
-    <section
-      id="contact"
-      style={{ padding: '7rem 4rem', borderTop: '1px solid #2a2a27' }}
-    >
-      <p style={{
-        fontFamily: 'DM Mono, monospace',
-        fontSize: '0.7rem',
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        color: '#cdf53c',
-        marginBottom: '1rem',
-      }}>
-        04 — Contact
-      </p>
-      <h2 style={{
-        fontFamily: 'Fraunces, serif',
-        fontWeight: 300,
-        fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-        lineHeight: 1.1,
-        letterSpacing: '-0.02em',
-        marginBottom: '4rem',
-      }}>
-        Let's build{' '}
-        <em style={{ fontStyle: 'italic', color: '#cdf53c' }}>something.</em>
-      </h2>
+    <section id="contact" className="border-t border-border">
+      <div className="container-x py-20 md:py-28">
+        <div className="grid gap-12 md:grid-cols-2 lg:gap-20">
+          <div>
+            <SectionHeading
+              label="Contact"
+              title="Let’s have a"
+              accent="conversation."
+              intro="Tell me a little about your business and what you are hoping to improve. No technical knowledge needed. I reply within one working day, and the first call is free."
+            />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}>
-        <div>
-          <p style={{ color: '#7a7870', lineHeight: 1.8, marginBottom: '2.5rem', fontSize: '1rem' }}>
-            I take on a limited number of projects at a time so each client gets full attention.
-            If you have a workflow bottleneck you think AI could fix, let's talk about whether it's the right fit.
-          </p>
+            <ul className="card divide-y divide-border">
+              {links.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    target={l.href.startsWith('http') ? '_blank' : undefined}
+                    rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="flex items-center gap-4 px-5 py-4 text-[0.95rem] text-ink transition-colors hover:text-accent"
+                  >
+                    <span className="min-w-[72px] text-xs font-semibold uppercase tracking-[0.12em] text-muted">{l.label}</span>
+                    {l.value}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm text-muted">Based in London · Works remotely · English and Dutch</p>
+          </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith('http') ? '_blank' : undefined}
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  color: '#7a7870',
-                  textDecoration: 'none',
-                  fontSize: '0.9rem',
-                  padding: '0.8rem 0',
-                  borderBottom: '1px solid #2a2a27',
-                  fontFamily: 'DM Sans, sans-serif',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#cdf53c' }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#7a7870' }}
-              >
-                <span style={{
-                  fontFamily: 'DM Mono, monospace',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#5a5a58',
-                  minWidth: '68px',
-                }}>
-                  {l.label}
-                </span>
-                {l.value}
-              </a>
-            ))}
+          <div className="card p-7 md:p-9">
+            {status === 'sent' ? (
+              <div className="flex flex-col gap-3">
+                <div className="font-serif text-2xl">Thank you, message received.</div>
+                <p className="leading-relaxed text-muted">
+                  I will reply within one working day. If it is urgent, email me directly at{' '}
+                  <a href={`mailto:${EMAIL}`} className="font-medium text-accent underline underline-offset-4">
+                    {EMAIL}
+                  </a>
+                  .
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <Field label="Your name" name="name" type="text" placeholder="Jane Smith" required autoComplete="name" />
+                  <Field label="Email" name="email" type="email" placeholder="jane@company.com" required autoComplete="email" />
+                </div>
+                <Field label="Company (optional)" name="company" type="text" placeholder="Where you work" autoComplete="organization" />
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="interest" className="field-label">
+                    What would you like help with?
+                  </label>
+                  <select id="interest" name="interest" className="field" defaultValue="">
+                    <option value="" disabled>
+                      Choose one
+                    </option>
+                    {interests.map((i) => (
+                      <option key={i} value={i}>
+                        {i}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="message" className="field-label">
+                    Tell me about your business and what you would like to improve
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="A few lines is plenty. What takes too much time, or what would you like to know?"
+                    className="field min-h-[140px] resize-y"
+                  />
+                </div>
+                <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                <input type="hidden" name="_subject" value="New enquiry via aisy-consulting.github.io" />
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <button type="submit" disabled={status === 'sending'} className="btn-primary disabled:cursor-wait disabled:opacity-70">
+                    {status === 'sending' ? 'Sending' : 'Send message'}
+                  </button>
+                  {status === 'error' && (
+                    <p role="alert" className="text-sm text-muted">
+                      Something went wrong. Please email me directly at{' '}
+                      <a href={`mailto:${EMAIL}`} className="font-medium text-accent underline underline-offset-4">
+                        {EMAIL}
+                      </a>
+                      .
+                    </p>
+                  )}
+                </div>
+                <p className="text-xs leading-relaxed text-muted">
+                  Your details are only used to reply to you. No newsletters, no sharing.
+                </p>
+              </form>
+            )}
           </div>
         </div>
-
-        {submitted ? (
-          <div style={{
-            border: '1px solid #2a2a27',
-            padding: '3rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem',
-          }}>
-            <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1.4rem', fontWeight: 300 }}>
-              Message received.
-            </div>
-            <p style={{ color: '#7a7870', fontSize: '0.9rem', lineHeight: 1.7 }}>
-              I'll be in touch within 24 hours.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <FormField label="Name" name="name" type="text" placeholder="Your name" required />
-            <FormField label="Email" name="email" type="email" placeholder="your@company.com" required />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              <label style={labelStyle}>I'm interested in</label>
-              <select name="interest" style={inputStyle} defaultValue="">
-                <option value="" disabled>Select a product…</option>
-                <option value="knowledgebot">KnowledgeBot</option>
-                <option value="draftassist">DraftAssist</option>
-                <option value="researchpilot">ResearchPilot</option>
-                <option value="other">Not sure yet</option>
-              </select>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              <label style={labelStyle}>Tell me about your workflow</label>
-              <textarea
-                placeholder="What are you trying to automate or improve?"
-                name="message"
-                style={{ ...inputStyle, minHeight: '120px', resize: 'vertical' }}
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              style={{
-                background: loading ? '#a8c930' : '#cdf53c',
-                color: '#0b0b0a',
-                border: 'none',
-                padding: '0.9rem 2rem',
-                fontFamily: 'DM Sans, sans-serif',
-                fontSize: '0.9rem',
-                fontWeight: 500,
-                cursor: loading ? 'not-allowed' : 'pointer',
-                borderRadius: '2px',
-                alignSelf: 'flex-start',
-                letterSpacing: '0.02em',
-                transition: 'background 0.2s',
-              }}
-            >
-              {loading ? 'Sending…' : 'Send message →'}
-            </button>
-          </form>
-        )}
       </div>
     </section>
   )
 }
 
-function FormField({ label, name, type, placeholder, required }) {
+function Field({ label, name, type, placeholder, required, autoComplete }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-      <label style={labelStyle}>{label}</label>
-      <input name={name} type={type} placeholder={placeholder} required={required} style={inputStyle} />
+    <div className="flex flex-col gap-2">
+      <label htmlFor={name} className="field-label">
+        {label}
+      </label>
+      <input id={name} name={name} type={type} placeholder={placeholder} required={required} autoComplete={autoComplete} className="field" />
     </div>
   )
-}
-
-const labelStyle = {
-  fontFamily: 'DM Mono, monospace',
-  fontSize: '0.7rem',
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase',
-  color: '#7a7870',
-}
-
-const inputStyle = {
-  background: '#141412',
-  border: '1px solid #2a2a27',
-  color: '#f0ede6',
-  padding: '0.75rem 1rem',
-  fontFamily: 'DM Sans, sans-serif',
-  fontSize: '0.9rem',
-  fontWeight: 300,
-  borderRadius: '2px',
-  outline: 'none',
-  width: '100%',
 }

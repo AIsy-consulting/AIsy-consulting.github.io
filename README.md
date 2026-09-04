@@ -1,67 +1,69 @@
-# AIsy — Website
+# AIsy website
 
-Landing page for AIsy AI integration consulting.
+Landing page for AIsy, Gidon Peeper's AI engineering and consulting practice.
+Live at **https://aisy-consulting.github.io**.
 
 ## Stack
-- Next.js 14 (App Router)
-- Static export (GitHub Pages compatible)
-- Tailwind CSS
-- No external UI libraries
+
+- Next.js 14 (App Router), static export
+- Tailwind CSS 3
+- Google Fonts via `next/font` (Fraunces, DM Sans), self-hosted at build time
+- Open Graph image generated at build in `app/opengraph-image.js` (fetches Fraunces once, falls back to the default font offline)
+- Contact form posts to Formspree (`components/Contact.js`)
+- No other runtime dependencies
 
 ## Local development
 
 ```bash
 npm install
-npm run dev
-# → http://localhost:3000
+npm run dev      # http://localhost:3000
+npm run build    # static site in ./out
 ```
 
-## Deploy to GitHub Pages
+## Deploy
 
-### First-time setup
-1. Create a GitHub Organisation called `aisy-ai` (free at github.com/organizations/new)
-2. Create a new repo inside that org named `aisy-ai.github.io`
-3. Push this folder to the `main` branch of that repo
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes
+`./out` to GitHub Pages. Repo Settings → Pages → Source must be set to **GitHub Actions**.
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/aisy-ai/aisy-ai.github.io.git
-git push -u origin main
+## Structure
+
+```
+app/
+  layout.js            # fonts, metadata, Open Graph
+  page.js              # assembles the sections
+  globals.css          # Tailwind layers + shared component classes (.btn-primary, .field, ...)
+  icon.svg             # favicon
+  opengraph-image.js   # social preview image, generated at build
+  sitemap.js
+components/
+  Nav.js               # fixed nav with mobile menu
+  Hero.js              # headline, portrait, three promises, facts strip
+  Services.js          # four plain-language starting points + "start with a conversation"
+  Process.js           # four-step engagement process
+  Work.js              # selected work, each with a "for your technical team" note
+  About.js             # bio, credentials, publications
+  Faq.js               # questions people ask (native <details>, no JS)
+  Contact.js           # Formspree form + contact links
+  Footer.js
+  SectionHeading.js
+  Icon.js              # small inline stroke icons
+public/
+  profile.jpg
+  robots.txt
 ```
 
-4. In the repo Settings → Pages → Source: select **GitHub Actions**
-5. The workflow in `.github/workflows/deploy.yml` handles everything automatically
+## Editing content
 
-### After that
-Every push to `main` triggers a new deploy. Your site is live at:
-**https://aisy-ai.github.io**
+All copy lives in the component files as plain data arrays or JSX. To change a starting point, edit
+the `services` array in `components/Services.js`; for work entries, `projects` in
+`components/Work.js`; for credentials and publications, the arrays at the top of
+`components/About.js`; for questions and answers, `faqs` in `components/Faq.js`.
+
+The copy is written for readers who are not familiar with AI. Lead with the outcome in plain
+language and keep technical terms inside the "For your technical team" notes.
 
 ## Custom domain (optional)
-1. Buy a domain (e.g. `aisy.ai` or `getaisy.com`)
-2. In `next.config.js`, you can remove the `basePath` entirely
-3. In repo Settings → Pages → Custom domain, enter your domain
-4. Add a `CNAME` file to `/public/` containing just your domain name
 
-## Project structure
-
-```
-aisy/
-├── app/
-│   ├── layout.js       # Root layout + metadata
-│   ├── page.js         # Home page (assembles sections)
-│   └── globals.css     # Base styles + fonts
-├── components/
-│   ├── Nav.js          # Sticky nav
-│   ├── Hero.js         # Hero section
-│   ├── Services.js     # Three products
-│   ├── About.js        # Bio + credentials
-│   ├── Process.js      # 4-step process
-│   └── Contact.js      # Contact form + links
-├── .github/workflows/
-│   └── deploy.yml      # Auto-deploy to GitHub Pages
-├── next.config.js      # Static export config
-├── tailwind.config.js
-└── package.json
-```
+1. In repo Settings → Pages → Custom domain, enter the domain.
+2. Add a `public/CNAME` file containing just the domain name.
+3. Update `metadataBase` in `app/layout.js` and the URLs in `app/sitemap.js` and `public/robots.txt`.
