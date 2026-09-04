@@ -1,7 +1,7 @@
 import SectionHeading from './SectionHeading'
 
 const credentials = [
-  { org: 'Ayrshare', role: 'External AI consultant and engineer', period: '2026 to present' },
+  { org: 'Social media software company (client)', role: 'External AI consultant and engineer', period: '2026 to present' },
   { org: 'Princeton University, Hasson Lab', role: 'Research intern and assistant', period: '2025 to 2026' },
   { org: 'University of Amsterdam', role: 'MSc Artificial Intelligence', period: '2023 to 2026' },
   { org: 'Cognitive AI Lab, University of Amsterdam', role: 'Summer research intern', period: '2025' },
@@ -41,8 +41,8 @@ export default function About() {
               Princeton University using language models to study how the brain processes conversation.
             </p>
             <p className="mb-5 leading-relaxed text-muted">
-              Since 2026 I have been the external AI consultant and engineer for Ayrshare, a social media software
-              company, where I built and run their data and AI recommendation system. Alongside that I take on a
+              Since 2026 I have been the external AI consultant and engineer for a social media software company,
+              where I built and run their data and AI recommendation system. Alongside that I take on a
               small number of AIsy projects at a time, so each one gets proper attention.
             </p>
             <p className="mb-5 leading-relaxed text-muted">

@@ -4,14 +4,14 @@ const projects = [
   {
     period: '2026 to present',
     kind: 'Client engagement',
-    org: 'Ayrshare',
+    org: 'Social media software company',
     title: 'Telling businesses what kind of social media post will perform',
     body: [
-      'Ayrshare provides social media publishing tools to businesses and app developers. They wanted to give their customers advice on what kind of post works, based on real results rather than opinion. I built the whole system: collecting the data safely, using AI to describe what is in each post, and analysing which qualities genuinely lead to more reach and engagement. The findings are delivered so that customers’ own AI assistants can use them.',
+      'A software company whose customers publish to social media wanted to give them advice on what kind of post works, based on real results rather than opinion. I built the whole system: collecting the data safely, using AI to describe what is in each post, and analysing which qualities genuinely lead to more reach and engagement. The findings are delivered so that customers’ own AI assistants can use them.',
       'I work directly with the CEO on product direction, with the engineering team on how the system connects to their product, and with early customers on the questions they actually want answered.',
     ],
     tech: 'Pseudonymised daily sync from production into a BigQuery warehouse; multimodal LLM labelling of posts against a fixed feature taxonomy; statistical modelling that separates real effects from coincidence; results served through MCP tools. Python, Node.js, Google Cloud.',
-    link: { href: 'https://www.ayrshare.com', label: 'About Ayrshare' },
+    link: null,
   },
   {
     period: '2025 to 2026',
@@ -67,6 +67,7 @@ export default function Work() {
                   <strong>For your technical team: </strong>
                   {p.tech}
                 </p>
+                {p.link && (
                 <a
                   href={p.link.href}
                   target="_blank"
@@ -75,6 +76,7 @@ export default function Work() {
                 >
                   {p.link.label}
                 </a>
+                )}
               </div>
             </article>
           ))}

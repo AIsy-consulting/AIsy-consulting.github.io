@@ -3,7 +3,7 @@ import SectionHeading from './SectionHeading'
 const steps = [
   {
     title: 'A conversation',
-    desc: 'Thirty minutes, free, no preparation needed. You describe how your business works and where things get slow or expensive. I ask questions and tell you honestly whether AI can help.',
+    desc: 'Ten minutes, free, no preparation needed. You describe what your business does and where things get slow or expensive. I tell you honestly whether AI can help, and if so what the next step would be.',
   },
   {
     title: 'A clear proposal',

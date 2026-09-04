@@ -68,7 +68,7 @@ export default function Services() {
             <p className="eyebrow mb-3">Not sure where to start?</p>
             <h3 className="mb-3 font-serif text-2xl font-normal">Start with a conversation</h3>
             <p className="leading-relaxed text-muted">
-              In a free 30-minute call we look at where your team’s time goes and whether AI can help. If it makes
+              In a free 10-minute call we look at where your team’s time goes and whether AI can help. If it makes
               sense, I follow up with a short written assessment: what is feasible, roughly what it would cost,
               and where the risks are. If the honest answer is “not yet”, you get that in writing too.
             </p>

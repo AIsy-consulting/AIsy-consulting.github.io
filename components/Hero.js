@@ -4,7 +4,7 @@ import Icon from './Icon'
 const promises = ['Fixed price, agreed before work starts', 'Explained in plain language', 'You own everything I build']
 
 const facts = [
-  { label: 'Currently', value: 'External AI consultant and engineer at Ayrshare' },
+  { label: 'Currently', value: 'External AI consultant and engineer for a social media software company' },
   { label: 'Previously', value: 'Research at Princeton University' },
   { label: 'Education', value: 'MSc Artificial Intelligence, University of Amsterdam' },
 ]
@@ -33,7 +33,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.35s' }}>
             <a href="#contact" className="btn-primary">
-              Book a free 30-minute call
+              Book a free 10-minute call
             </a>
             <a href="#services" className="btn-secondary">
               See how I can help
@@ -60,7 +60,7 @@ export default function Hero() {
           />
           <figcaption className="mt-4 max-w-[400px] text-sm leading-relaxed text-muted">
             <span className="font-medium text-ink">Gidon Peeper</span>, AI engineer and consultant. Formerly a
-            researcher at Princeton University. Now also building AI products at Ayrshare.
+            researcher at Princeton University. Now also building AI products for a software company.
           </figcaption>
         </figure>
       </div>
