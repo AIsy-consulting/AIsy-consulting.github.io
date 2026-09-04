@@ -35,14 +35,17 @@ app/
   icon.svg             # favicon
   opengraph-image.js   # social preview image, generated at build
   sitemap.js
+  not-found.js         # styled 404 (GitHub Pages serves out/404.html)
 components/
   Nav.js               # fixed nav with mobile menu
   Hero.js              # headline, portrait, three promises, facts strip
-  Services.js          # four plain-language starting points + "start with a conversation"
+  Services.js          # four plain-language starting points
+  Selfcheck.js         # interactive two-minute check; pre-fills the contact form's dropdown
   Process.js           # four-step engagement process
+  Principles.js        # "four things you can hold me to"
   Work.js              # selected work, each with a "for your technical team" note
   About.js             # bio, credentials, publications
-  Faq.js               # questions people ask (native <details>, no JS)
+  Faq.js               # questions people ask + plain-words glossary (native <details>, no JS)
   Contact.js           # Formspree form + contact links
   Footer.js
   SectionHeading.js
@@ -57,7 +60,7 @@ public/
 All copy lives in the component files as plain data arrays or JSX. To change a starting point, edit
 the `services` array in `components/Services.js`; for work entries, `projects` in
 `components/Work.js`; for credentials and publications, the arrays at the top of
-`components/About.js`; for questions and answers, `faqs` in `components/Faq.js`.
+`components/About.js`; for questions and answers, `faqs` and `glossary` in `components/Faq.js`; for the self-check, the `questions` and `outcomes` objects in `components/Selfcheck.js`.
 
 The copy is written for readers who are not familiar with AI. Lead with the outcome in plain
 language and keep technical terms inside the "For your technical team" notes.

@@ -40,7 +40,7 @@ export default function Services() {
           label="How I can help"
           title="Four common"
           accent="starting points."
-          intro="Most projects begin with one of these. If yours does not fit neatly, that is normal. The first call is for working out what would actually help."
+          intro="Most projects begin with one of these. If yours does not fit neatly, that is normal. Try the two-minute check below, or bring it to the free call and we work it out together."
         />
 
         <div className="grid gap-5 md:grid-cols-2">
@@ -63,20 +63,6 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col gap-6 rounded-2xl bg-accent-soft p-8 md:flex-row md:items-center md:justify-between md:p-10">
-          <div className="max-w-2xl">
-            <p className="eyebrow mb-3">Not sure where to start?</p>
-            <h3 className="mb-3 font-serif text-2xl font-normal">Start with a conversation</h3>
-            <p className="leading-relaxed text-muted">
-              In a free 10-minute call we look at where your team’s time goes and whether AI can help. If it makes
-              sense, I follow up with a short written assessment: what is feasible, roughly what it would cost,
-              and where the risks are. If the honest answer is “not yet”, you get that in writing too.
-            </p>
-          </div>
-          <a href="#contact" className="btn-primary shrink-0 self-start md:self-center">
-            Book a free call
-          </a>
-        </div>
       </div>
     </section>
   )

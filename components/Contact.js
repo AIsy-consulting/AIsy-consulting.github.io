@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SectionHeading from './SectionHeading'
 
 const FORM_ENDPOINT = 'https://formspree.io/f/meedevoq'
@@ -21,6 +21,15 @@ const interests = [
 
 export default function Contact() {
   const [status, setStatus] = useState('idle')
+  const [interest, setInterest] = useState('')
+
+  useEffect(() => {
+    const onInterest = (e) => {
+      if (interests.includes(e.detail)) setInterest(e.detail)
+    }
+    window.addEventListener('aisy:interest', onInterest)
+    return () => window.removeEventListener('aisy:interest', onInterest)
+  }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -90,7 +99,7 @@ export default function Contact() {
                   <label htmlFor="interest" className="field-label">
                     What would you like help with?
                   </label>
-                  <select id="interest" name="interest" className="field" defaultValue="">
+                  <select id="interest" name="interest" className="field" value={interest} onChange={(e) => setInterest(e.target.value)}>
                     <option value="" disabled>
                       Choose one
                     </option>

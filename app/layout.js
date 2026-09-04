@@ -20,6 +20,27 @@ const title = 'AIsy · Practical AI for your business'
 const description =
   'AIsy is Gidon Peeper, an AI consultant and engineer in London. Practical AI for businesses: answers from your own documents, insight from your data, automation of repetitive work, and AI features in your product. Fixed scope, plain language, honest advice.'
 
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'AIsy',
+  url: 'https://aisy-consulting.github.io',
+  description,
+  email: 'gidon.aisy@gmail.com',
+  telephone: '+31620982768',
+  address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
+  areaServed: ['GB', 'NL', 'US'],
+  knowsLanguage: ['en', 'nl'],
+  founder: {
+    '@type': 'Person',
+    name: 'Gidon Peeper',
+    jobTitle: 'AI engineer and consultant',
+    url: 'https://gidonpeeper.github.io',
+    sameAs: ['https://www.linkedin.com/in/gidonpeeper'],
+  },
+}
+
 export const metadata = {
   metadataBase: new URL('https://aisy-consulting.github.io'),
   title,
@@ -62,6 +83,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </body>
     </html>
   )
