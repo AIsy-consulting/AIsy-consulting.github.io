@@ -16,15 +16,15 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
-const title = 'AIsy · Practical AI for your business'
+const title = 'AISY: AI made eaSY'
 const description =
-  'AIsy is Gidon Peeper, an AI consultant and engineer in London. Practical AI for businesses: answers from your own documents, insight from your data, automation of repetitive work, and AI features in your product. Fixed scope, plain language, honest advice.'
-
+  'AISY helps companies use AI where it pays off: answers from your own documents, insight from your data, less repetitive work, and AI features in your product. Fixed price, plain language. Gidon Peeper, London.'
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'AIsy',
+  name: 'AISY',
+  slogan: 'AI made eaSY',
   url: 'https://aisy-consulting.github.io',
   description,
   email: 'gidon.aisy@gmail.com',
@@ -45,33 +45,25 @@ export const metadata = {
   metadataBase: new URL('https://aisy-consulting.github.io'),
   title,
   description,
-  keywords: [
-    'AI consultant',
-    'AI consultancy London',
-    'AI for small business',
-    'AI engineer',
-    'document assistant',
-    'data analysis',
-    'automation',
-    'Gidon Peeper',
-  ],
+  keywords: ['AI consultant', 'AI consultancy London', 'AI for small business', 'AI engineer', 'document assistant', 'data analysis', 'automation', 'Gidon Peeper'],
   authors: [{ name: 'Gidon Peeper', url: 'https://gidonpeeper.github.io' }],
   openGraph: {
     type: 'website',
     title,
     description,
     url: 'https://aisy-consulting.github.io',
-    siteName: 'AIsy',
+    siteName: 'AISY',
     locale: 'en_GB',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'AIsy · Practical AI for your business, by Gidon Peeper' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'AISY: AI made eaSY' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title,
-    description,
-    images: ['/og.png'],
-  },
+  twitter: { card: 'summary_large_image', title, description, images: ['/og.png'] },
   robots: { index: true, follow: true },
+}
+
+export const viewport = {
+  themeColor: '#f8f7f3',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({ children }) {
@@ -89,10 +81,4 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   )
-}
-
-export const viewport = {
-  themeColor: '#f8f7f3',
-  width: 'device-width',
-  initialScale: 1,
 }

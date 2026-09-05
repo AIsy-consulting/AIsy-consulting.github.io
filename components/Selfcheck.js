@@ -47,25 +47,25 @@ const outcomes = {
     title: 'Answers from your own documents',
     interest: 'Answers from our documents',
     summary:
-      'The most likely fit is an assistant that answers questions from your own manuals, policies, contracts and past work, and shows where each answer came from. It usually needs nothing more than the documents you already have.',
+      'An assistant that answers questions from your own manuals, policies, contracts and past work, and shows where each answer came from. It usually needs nothing more than the documents you already have.',
   },
   automation: {
     title: 'Taking the repetitive work off your team',
     interest: 'Automating repetitive work',
     summary:
-      'The most likely fit is automation: software that reads the incoming PDFs, emails or forms, fills in the right fields, and flags anything it is unsure about for a person to check. Projects like this pay for themselves quickly when the volume is steady.',
+      'Software that reads the incoming PDFs, emails or forms, fills in the right fields, and flags anything uncertain for a person. This pays for itself quickly when the volume is steady.',
   },
   data: {
     title: 'Finding out what actually drives your results',
     interest: 'Understanding our data',
     summary:
-      'The most likely fit is a proper analysis of the data you already collect: which factors genuinely move your numbers, which only look like they do, and how confident you can be in each answer. You get findings written in plain language, not just charts.',
+      'A proper analysis of the data you already collect: which factors move your numbers, which only look like they do, and what patterns are in there that nobody was looking for. Findings in plain language, not just charts.',
   },
   product: {
     title: 'An AI feature in your own product',
     interest: 'An AI feature in our product',
     summary:
-      'The most likely fit is designing and building an AI feature on top of your product and its data, with proper testing so it behaves in front of customers. I can work with your developers or deliver it ready to plug in.',
+      'An AI feature built on your product and its data, tested so it behaves in front of customers. I can work with your developers or deliver it ready to plug in.',
   },
 }
 
@@ -82,9 +82,9 @@ const techNotes = {
 }
 
 const moodNotes = {
-  cautious: 'Cautious is the right starting point. We would begin with one small, measurable piece of work, and I will tell you if it is not worth doing.',
-  pressure: 'Pressure to adopt AI tends to produce expensive projects nobody uses. A short assessment first is far cheaper than the wrong build.',
-  using: 'Then you already know what these tools can and cannot do. The next step is connecting them to your own information, safely.',
+  cautious: 'Cautious is sensible. We would start with one small, measurable piece of work, and I will tell you if it is not worth doing.',
+  pressure: 'Pressure tends to produce expensive projects nobody uses. A short assessment first is cheaper than the wrong build.',
+  using: 'Then you know what these tools can and cannot do. The next step is connecting them to your own information, safely.',
 }
 
 export default function Selfcheck() {
@@ -120,11 +120,8 @@ export default function Selfcheck() {
               A two-minute <em className="italic text-accent">check.</em>
             </h2>
             <p className="mt-5 text-[1.05rem] leading-relaxed text-muted">
-              Four quick questions, no email address required, nothing is stored. You get a rough pointer to the
-              kind of project that would help, and a sense of how I would approach it.
-            </p>
-            <p className="mt-4 text-[1.05rem] leading-relaxed text-muted">
-              It is a pointer, not a diagnosis. The free 10-minute call is where we work out what actually fits.
+              Four questions, nothing stored. You get a pointer to the kind of project that would help. The free
+              10-minute call is where we work out what fits.
             </p>
           </div>
 

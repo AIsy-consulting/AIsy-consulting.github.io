@@ -53,9 +53,9 @@ export default function Contact() {
           <div>
             <SectionHeading
               label="Contact"
-              title="Let’s have a"
-              accent="conversation."
-              intro="Tell me a little about your business and what you are hoping to improve. No technical knowledge needed. I reply within one working day, and the first call is free."
+              title="Let’s"
+              accent="talk."
+              intro="Tell me a little about your business and what you would like to improve. No technical knowledge needed. I reply within one working day. The first call is free."
             />
 
             <ul className="card divide-y divide-border">
@@ -118,7 +118,7 @@ export default function Contact() {
                     id="message"
                     name="message"
                     required
-                    placeholder="A few lines is plenty. What takes too much time, or what would you like to know?"
+                    placeholder="A few lines is plenty. What takes too much time?"
                     className="field min-h-[140px] resize-y"
                   />
                 </div>

@@ -2,10 +2,9 @@
 import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '#services', label: 'How I can help' },
+  { href: '#services', label: 'What I do' },
   { href: '#process', label: 'How it works' },
   { href: '#work', label: 'Work' },
-  { href: '#about', label: 'About' },
   { href: '#faq', label: 'Questions' },
 ]
 
@@ -26,8 +25,8 @@ export default function Nav() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${shell}`}>
       <nav className="container-x flex items-center justify-between py-4 md:py-5" aria-label="Main">
-        <a href="#top" className="font-serif text-[1.35rem] text-ink">
-          AIsy
+        <a href="#top" className="font-serif text-[1.35rem] tracking-[0.02em] text-ink">
+          AISY
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">

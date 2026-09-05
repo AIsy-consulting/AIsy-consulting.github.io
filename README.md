@@ -1,6 +1,6 @@
-# AIsy website
+# AISY website
 
-Landing page for AIsy, Gidon Peeper's AI engineering and consulting practice.
+Landing page for AISY ("AI made eaSY"), Gidon Peeper's AI consulting and engineering practice.
 Live at **https://aisy-consulting.github.io**.
 
 ## Stack
@@ -38,13 +38,12 @@ app/
   not-found.js         # styled 404 (GitHub Pages serves out/404.html)
 components/
   Nav.js               # fixed nav with mobile menu
-  Hero.js              # headline, portrait, three promises, facts strip
+  Hero.js              # headline and three promises
   Services.js          # four plain-language starting points
   Selfcheck.js         # interactive two-minute check; pre-fills the contact form's dropdown
-  Process.js           # four-step engagement process
-  Principles.js        # "four things you can hold me to"
-  Work.js              # selected work, each with a "for your technical team" note
-  About.js             # bio, credentials, publications
+  Process.js           # four steps + "what you can hold me to"
+  Work.js              # two pieces of work, each with an "in technical terms" note
+  About.js             # short bio + link to the personal site
   Faq.js               # questions people ask + plain-words glossary (native <details>, no JS)
   MadeWithAi.js        # "this site was made with AI" disclosure
   Contact.js           # Formspree form + contact links
@@ -64,7 +63,7 @@ the `services` array in `components/Services.js`; for work entries, `projects` i
 `components/About.js`; for questions and answers, `faqs` and `glossary` in `components/Faq.js`; for the self-check, the `questions` and `outcomes` objects in `components/Selfcheck.js`.
 
 The copy is written for readers who are not familiar with AI. Lead with the outcome in plain
-language and keep technical terms inside the "For your technical team" notes.
+language and keep technical terms inside the "In technical terms" notes.
 
 ## Custom domain (optional)
 

@@ -1,8 +1,7 @@
 const sections = [
-  { href: '#services', label: 'How I can help' },
+  { href: '#services', label: 'What I do' },
   { href: '#check', label: 'Two-minute check' },
   { href: '#process', label: 'How it works' },
-  { href: '#principles', label: 'How I work' },
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '#faq', label: 'Questions' },
@@ -16,10 +15,10 @@ export default function Footer() {
       <div className="container-x py-12">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <div className="font-serif text-xl">AIsy</div>
+            <div className="font-serif text-xl tracking-[0.02em]">AISY</div>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
-              Practical AI for your business, explained in plain language. Run by Gidon Peeper, an AI engineer
-              in London, working with companies in the UK, the Netherlands and the US.
+              AI made eaSY. Gidon Peeper, AI engineer in London, working with companies in the UK, the Netherlands
+              and the US.
             </p>
           </div>
           <nav aria-label="Sections">

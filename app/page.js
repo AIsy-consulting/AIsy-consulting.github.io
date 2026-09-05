@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 import Selfcheck from '../components/Selfcheck'
 import Process from '../components/Process'
-import Principles from '../components/Principles'
 import Work from '../components/Work'
 import About from '../components/About'
 import Faq from '../components/Faq'
@@ -20,7 +19,6 @@ export default function Home() {
         <Services />
         <Selfcheck />
         <Process />
-        <Principles />
         <Work />
         <About />
         <Faq />
