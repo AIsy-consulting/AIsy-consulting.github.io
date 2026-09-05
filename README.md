@@ -46,6 +46,7 @@ components/
   Work.js              # selected work, each with a "for your technical team" note
   About.js             # bio, credentials, publications
   Faq.js               # questions people ask + plain-words glossary (native <details>, no JS)
+  MadeWithAi.js        # "this site was made with AI" disclosure
   Contact.js           # Formspree form + contact links
   Footer.js
   SectionHeading.js

@@ -6,6 +6,7 @@ const sections = [
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '#faq', label: 'Questions' },
+  { href: '#made-with-ai', label: 'Made with AI' },
   { href: '#contact', label: 'Contact' },
 ]
 

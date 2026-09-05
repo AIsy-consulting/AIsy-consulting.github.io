@@ -7,6 +7,7 @@ import Principles from '../components/Principles'
 import Work from '../components/Work'
 import About from '../components/About'
 import Faq from '../components/Faq'
+import MadeWithAi from '../components/MadeWithAi'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Work />
         <About />
         <Faq />
+        <MadeWithAi />
         <Contact />
       </main>
       <Footer />
