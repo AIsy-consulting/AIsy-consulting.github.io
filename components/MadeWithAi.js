@@ -13,7 +13,7 @@ export default function MadeWithAi() {
             <p className="mb-5">
               The design, the code and the text of this site, the two-minute check, the list of companies I contacted
               and the email that may have brought you here were all produced with AI (Claude), with me directing and
-              checking. It took a day. Client work runs the same way: AI does the volume, I keep the judgement.
+              checking. It took two hours. Client work runs the same way: AI does the volume, I keep the judgement.
             </p>
             <a href="#contact" className="btn-secondary">Ask me how</a>
           </div>

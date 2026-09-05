@@ -32,15 +32,28 @@ const services = [
   },
 ]
 
+const extras = [
+  {
+    icon: 'chat',
+    title: 'A general AI consultation',
+    desc: 'Not sure where AI fits in your business? Half a day or a full day together. We go through your workflows and data, and you get a short written assessment: what is feasible, roughly what it would cost, and what to do first. If the answer is “not yet”, you get that in writing too.',
+  },
+  {
+    icon: 'sliders',
+    title: 'Something tailored',
+    desc: 'If your problem does not fit the boxes above, describe it. Most work starts as a specific problem that did not fit a box. If I am not the right person for it, I will say so and point you somewhere useful.',
+  },
+]
+
 export default function Services() {
   return (
     <section id="services" className="border-t border-border bg-surface">
       <div className="container-x py-20 md:py-28">
         <SectionHeading
           label="What I do"
-          title="Four common"
-          accent="starting points."
-          intro="Most projects start with one of these. If yours does not fit, bring it to the call."
+          title="Where to"
+          accent="start."
+          intro="Most projects start with one of the first four. If yours does not fit, the last two are for you."
         />
 
         <div className="grid gap-5 md:grid-cols-2">
@@ -56,9 +69,22 @@ export default function Services() {
                 {s.example}
               </p>
               <p className="tech-note mt-auto border-t border-border pt-4">
-                <strong>In technical terms: </strong>
                 {s.tech}
               </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          {extras.map((e) => (
+            <article key={e.title} className="card flex gap-5 p-7 transition-colors hover:border-ink/30 md:p-8">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                <Icon name={e.icon} className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="mb-2 font-serif text-xl font-normal leading-snug">{e.title}</h3>
+                <p className="text-[0.95rem] leading-relaxed text-muted">{e.desc}</p>
+              </div>
             </article>
           ))}
         </div>

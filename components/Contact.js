@@ -16,6 +16,8 @@ const interests = [
   'Understanding our data',
   'Automating repetitive work',
   'An AI feature in our product',
+  'A general AI consultation',
+  'Something tailored to us',
   'Not sure yet, I would like to talk it through',
 ]
 

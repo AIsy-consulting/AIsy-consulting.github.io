@@ -25,6 +25,19 @@ const paths = {
       <path d="M10 3.5a1.5 1.5 0 0 1 3 0V5h3a1 1 0 0 1 1 1v3h1.5a1.5 1.5 0 0 1 0 3H17v4a1 1 0 0 1-1 1h-3v-1.5a1.5 1.5 0 0 0-3 0V17H7a1 1 0 0 1-1-1v-4H4.5a1.5 1.5 0 0 1 0-3H6V6a1 1 0 0 1 1-1h3z" />
     </>
   ),
+  chat: (
+    <>
+      <path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-6.5A8 8 0 0 1 12 4h1a8 8 0 0 1 8 8z" />
+      <path d="M9 11h6M9 14h4" />
+    </>
+  ),
+  sliders: (
+    <>
+      <path d="M4 7h10M18 7h2M4 17h2M10 17h10" />
+      <circle cx="16" cy="7" r="2" />
+      <circle cx="8" cy="17" r="2" />
+    </>
+  ),
   check: <path d="M5 12l5 5L20 7" />,
   chevron: <path d="M6 9l6 6 6-6" />,
   arrow: (

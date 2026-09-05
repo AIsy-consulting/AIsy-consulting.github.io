@@ -13,7 +13,7 @@ export default function Hero() {
           className="mb-6 font-serif text-[3rem] font-normal leading-[1.02] tracking-[-0.02em] animate-fade-up sm:text-6xl md:text-7xl lg:text-[5.5rem]"
           style={{ animationDelay: '0.15s' }}
         >
-          AI made <em className="italic text-accent">eaSY.</em>
+          <span className="text-accent">AI</span> made ea<span className="text-accent">SY</span>.
         </h1>
         <p
           className="mb-8 max-w-2xl text-[1.1rem] leading-relaxed text-muted animate-fade-up md:text-xl"

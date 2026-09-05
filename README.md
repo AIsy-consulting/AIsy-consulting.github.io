@@ -63,7 +63,7 @@ the `services` array in `components/Services.js`; for work entries, `projects` i
 `components/About.js`; for questions and answers, `faqs` and `glossary` in `components/Faq.js`; for the self-check, the `questions` and `outcomes` objects in `components/Selfcheck.js`.
 
 The copy is written for readers who are not familiar with AI. Lead with the outcome in plain
-language and keep technical terms inside the "In technical terms" notes.
+language and keep technical terms inside the small grey notes under each card.
 
 ## Custom domain (optional)
 

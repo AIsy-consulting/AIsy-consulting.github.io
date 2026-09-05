@@ -39,8 +39,7 @@ export default function Work() {
                 <h3 className="mb-4 max-w-2xl font-serif text-2xl font-normal leading-snug md:text-[1.75rem]">{p.title}</h3>
                 <p className="mb-4 max-w-3xl leading-relaxed text-muted">{p.body}</p>
                 <p className="tech-note mt-5 max-w-3xl rounded-xl bg-paper px-4 py-3">
-                  <strong>In technical terms: </strong>
-                  {p.tech}
+                    {p.tech}
                 </p>
                 {p.link && (
                   <a
