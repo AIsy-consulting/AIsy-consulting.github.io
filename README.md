@@ -8,7 +8,7 @@ Live at **https://aisy-consulting.github.io**.
 - Next.js 14 (App Router), static export
 - Tailwind CSS 3
 - Google Fonts via `next/font` (Fraunces, DM Sans), self-hosted at build time
-- Open Graph image generated at build in `app/opengraph-image.js` (fetches Fraunces once, falls back to the default font offline)
+- Open Graph image is a static `public/og.png` (1200x630)
 - Contact form posts to Formspree (`components/Contact.js`)
 - No other runtime dependencies
 
@@ -33,7 +33,7 @@ app/
   page.js              # assembles the sections
   globals.css          # Tailwind layers + shared component classes (.btn-primary, .field, ...)
   icon.svg             # favicon
-  opengraph-image.js   # social preview image, generated at build
+  (public/og.png)      # social preview image, a static PNG
   sitemap.js
   not-found.js         # styled 404 (GitHub Pages serves out/404.html)
 components/
